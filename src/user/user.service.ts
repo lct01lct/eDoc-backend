@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './user.model';
-import { createId } from 'src/utils';
+import { UserCollection } from './user.model';
 
 @Injectable()
 export class UserService {
-  createUser(username): User {
-    return {
+  createUser(username: string) {
+    const newUser = UserCollection.create({
       username,
-      id: createId(),
-    };
+    });
+    return newUser;
   }
 }

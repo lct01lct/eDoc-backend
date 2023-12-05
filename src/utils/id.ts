@@ -1,5 +1,7 @@
 import { randomUUID } from 'crypto';
 
-export const createId = () => {
+export type ObjectId = string;
+
+export const createId = (): ObjectId => {
   return randomUUID({ disableEntropyCache: true });
 };

@@ -1,9 +1,10 @@
-import { User } from 'src/user/user.model';
+import { Collection, ObjectId } from 'src/utils';
 
-export interface Room {
-  readonly id: string;
+export class Room {
   private: boolean;
-  master: string;
+  master: ObjectId;
   secretKey?: string;
-  members: string[];
+  members: ObjectId[];
 }
+
+export const RoomCollection = new Collection(Room);
