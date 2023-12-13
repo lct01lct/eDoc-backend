@@ -11,6 +11,7 @@ specifiers:
   '@nestjs/websockets': ^10.2.10
   '@types/express': ^4.17.17
   '@types/jest': ^29.5.2
+  '@types/multer': ^1.4.11
   '@types/node': ^20.3.1
   '@types/supertest': ^2.0.12
   '@typescript-eslint/eslint-plugin': ^5.59.11
@@ -47,6 +48,7 @@ devDependencies:
   '@nestjs/testing': registry.npmmirror.com/@nestjs/testing/10.2.10_pzhtaocepqr3ym26skuqtxqqgm
   '@types/express': registry.npmmirror.com/@types/express/4.17.21
   '@types/jest': registry.npmmirror.com/@types/jest/29.5.10
+  '@types/multer': registry.npmmirror.com/@types/multer/1.4.11
   '@types/node': registry.npmmirror.com/@types/node/20.10.3
   '@types/supertest': registry.npmmirror.com/@types/supertest/2.0.16
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.62.0_oqdeer4qrhnh7okyne2j4ezkxm
@@ -1522,6 +1524,14 @@ packages:
     resolution: {integrity: sha512-iJt33IQnVRkqeqC7PzBHPTC6fDlRNRW8vjrgqtScAhrmMwe8c4Eo7+fUGTa+XdWrpEgpyKWMYmi2dIwMAYRzPw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/mime/-/mime-3.0.4.tgz}
     name: '@types/mime'
     version: 3.0.4
+    dev: true
+
+  registry.npmmirror.com/@types/multer/1.4.11:
+    resolution: {integrity: sha512-svK240gr6LVWvv3YGyhLlA+6LRRWA4mnGIU7RcNmgjBYFl6665wcXrRfxGp5tEPVHUNm5FMcmq7too9bxCwX/w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/multer/-/multer-1.4.11.tgz}
+    name: '@types/multer'
+    version: 1.4.11
+    dependencies:
+      '@types/express': registry.npmmirror.com/@types/express/4.17.21
     dev: true
 
   registry.npmmirror.com/@types/node/20.10.3:
