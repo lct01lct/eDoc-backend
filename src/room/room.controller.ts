@@ -1,8 +1,7 @@
 import {
   Body,
   Controller,
-  FileTypeValidator,
-  ParseFilePipe,
+  Headers,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -12,12 +11,15 @@ import { CreateRoomDto } from './room.dto';
 import { UserService } from 'src/user/user.service';
 import { Express } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { FileService } from 'src/file/file.service';
+import { FileInterceptorMulterOptions } from 'src/file/file.interceptor';
 
 @Controller('/room')
 export class RoomController {
   constructor(
     private readonly userService: UserService,
     private readonly roomService: RoomService,
+    private readonly fileService: FileService,
   ) {}
 
   @Post()
@@ -29,17 +31,14 @@ export class RoomController {
   }
 
   @Post('/upload')
-  @UseInterceptors(FileInterceptor('file'))
-  uploadPdfFile(
-    @UploadedFile(
-      new ParseFilePipe({
-        validators: [new FileTypeValidator({ fileType: 'application/pdf' })],
-      }),
-    )
+  @UseInterceptors(FileInterceptor('file', FileInterceptorMulterOptions))
+  async uploadPdfFile(
+    @UploadedFile()
     file: Express.Multer.File,
+    @Headers('user-id') userId: string,
+    @Headers('room-id') roomId: string,
   ) {
     console.log(file);
-
     return 1;
   }
 }
